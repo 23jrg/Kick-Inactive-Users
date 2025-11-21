@@ -18,7 +18,8 @@ REM Resets the path to default
 popd
 
 REM Creates the scheduled task to automatically trigger when someone logs in
-schtasks.exe /Create /XML "C:\Log off inactive users.xml" /tn LogInactiveOff
+schtasks.exe /Create /XML "C:\LogOffInactive\Log off inactive users.xml" /tn LogInactiveOff
+
 
 
 
