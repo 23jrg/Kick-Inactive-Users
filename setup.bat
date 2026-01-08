@@ -13,7 +13,7 @@ copy /y "uninstall.bat" "C:\LogInactiveOff"
 copy /y "Log off inactive users.xml" "C:\LogInactiveOff"
 
 
-del %userprofile%\desktop\Install_LogOffInactiveAccounts.lnk
+DEL "%userprofile%\desktop\Install_LogOffInactiveAccounts.Ink"
 
 REM Creates a shortcut to the uninstaller so the uninstaller can remove the resource folder without being inside it
 
@@ -23,6 +23,4 @@ REM Resets the path to default
 popd
 
 REM Creates the scheduled task to automatically trigger when someone logs in
-schtasks.exe /Create /XML "C:\LogOffInactive\Log off inactive users.xml" /tn LogInactiveOff
-
-
+schtasks.exe /Create /XML "C:\LogInactiveOff\Log off inactive users.xml" /tn LogInactiveOff
