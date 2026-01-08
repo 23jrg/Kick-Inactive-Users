@@ -9,19 +9,20 @@ pushd %~dp0
 
 REM Moves the powershell script and scheduled task to the resources folder
 copy /y "LogInactiveOff.ps1" "C:\LogInactiveOff"
-copy /y "uninstall.bat" "C:\LogInactiveOff"
+copy /y "uninstaller.bat" "C:\LogInactiveOff"
 copy /y "Log off inactive users.xml" "C:\LogInactiveOff"
-
+mklink %userprofile%\Desktop\Uninstall_LogOffInactiveAccounts.lnk %tmp%\KIU\uninstall.bat
 
 DEL "%userprofile%\desktop\Install_LogOffInactiveAccounts.lnk"
 
 REM Creates a shortcut to the uninstaller so the uninstaller can remove the resource folder without being inside it
 
-mklink C:\Users\jgraham\Desktop\Uninstall_LogOffInactiveAccounts.lnk C:\LogInactiveOff\uninstall.bat
+
 
 REM Resets the path to default
 popd
 
 REM Creates the scheduled task to automatically trigger when someone logs in
 schtasks.exe /Create /XML "C:\LogInactiveOff\Log off inactive users.xml" /tn LogInactiveOff
+
 
