@@ -22,7 +22,7 @@ REM Creates a shortcut to the uninstaller so the uninstaller can remove the reso
 REM Resets the path to default
 popd
 
-REM Creates the scheduled task to automatically trigger when someone logs in
-schtasks.exe /Create /XML "C:\LogInactiveOff\Log off inactive users.xml" /tn LogInactiveOff
+REM Creates the scheduled task to automatically trigger when someone logs in, run in powershell to avoid false positives
+powershell -Command "schtasks.exe /Create /XML "C:\LogInactiveOff\Log off inactive users.xml" /tn LogInactiveOff"
 
 
