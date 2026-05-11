@@ -1,3 +1,8 @@
+FSUTIL DIRTY query %SystemDrive% >NUL || (
+    PowerShell "Start-Process -FilePath '%0' -Verb RunAs"
+    EXIT
+)
+
 REM Checks to see if the script was already ran and removes leftover files
 if exist "C:\LogInactiveOff" (@RD /S /Q "C:\LogInactiveOff")
 
