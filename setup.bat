@@ -13,7 +13,7 @@ REM Changed the path to the working directory
 pushd %~dp0
 
 REM Moves the powershell script and scheduled task to the resources folder
-copy /y "uninstaller.bat" "C:\LogInactiveOff"
+copy /y "uninstall.bat" "C:\LogInactiveOff"
 copy /y "LogInactiveOff.xml" "C:\LogInactiveOff"
 
 REM Resets the path to default
